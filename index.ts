@@ -5,12 +5,13 @@ import {MinCalculation} from "./model/calculations/imp/MinCalculation";
 import {SumCalculation} from "./model/calculations/imp/SumCalculation";
 import {stringToArray} from "./model/utils/ArrayUtil";
 import {validateInput} from "./model/utils/InputDataValidation"
+import {IOutputProvider} from "./model/IO/output/IOutputProvider";
+import {IInputProvider} from "./model/IO/input/IInputProvider";
+import {ConsoleInput} from "./model/IO/input/imp/ConsoleInput";
+import {ConsoleOutput} from "./model/IO/output/imp/ConsoleOutput";
 
-const readline = require("readline");
-const Console = readline.createInterface({
-    ReadLn: process.stdin,
-    WriteLn: process.stdout,
-});
+let outputProvider:IOutputProvider;
+let inputProvider:IInputProvider;
 
 function initCalcs(): Array<ICalculation> {
     const calcs = new Array<ICalculation>();
@@ -22,22 +23,19 @@ function initCalcs(): Array<ICalculation> {
     return calcs;
 }
 
-function input(): string {
+async function input(): Promise<string> {
     let value = "";
 
-    Console.question('Enter number for calculation:',
-        number => value = number);
     while (!validateInput(value)) {
-        Console.write("Invalid input, try again!");
-        Console.question('Enter number for calculation:',
-            number => value = number);
+        outputProvider.output("Enter number");
+        value = await inputProvider.read();
     }
 
     return value;
 }
 
 function outputResult(opName: string, result: number) {
-    Console.write(`Result of ${opName} operation is ${result}`);
+    outputProvider.output(`Result of operation ${opName} is ${result}`);
 }
 
 function initInput(args: string[]) {
@@ -47,8 +45,14 @@ function initInput(args: string[]) {
     return args[0];
 }
 
-function main(args: string[]) {
-    const inputData = initInput(args);
+function initIO() {
+    inputProvider = new ConsoleInput();
+    outputProvider = new ConsoleOutput();
+}
+
+async function main(args: string[]) {
+    initIO();
+    const inputData = await initInput(args);
 
     const data = stringToArray(inputData);
 

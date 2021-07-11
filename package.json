@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "type": "commonjs",
   "scripts": {
+    "run": "npm run compile & node dist/index.js",
     "compile": "tsc --declaration",
     "lint": "tslint --project tsconfig.json",
     "prepublish": "npm run compile",
