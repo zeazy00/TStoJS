@@ -1,4 +1,5 @@
 import {ICalculation} from "../ICalculation";
+import {Operations} from "./Operations";
 
 export class MinCalculation implements ICalculation {
     readonly operation: Operations;
@@ -8,7 +9,10 @@ export class MinCalculation implements ICalculation {
     }
 
     execute(input: Array<number>): number {
-        return 0;
+        if (input.length == 0)
+            throw new Error(`Input collection is empty! Can't find ${this.operation}`);
+
+        return Math.min(...input);
     }
 
 }

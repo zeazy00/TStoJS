@@ -1,6 +1,7 @@
 import {ICalculation} from "../ICalculation";
+import {Operations} from "./Operations";
 
-export class MaxCalculation implements ICalculation{
+export class MaxCalculation implements ICalculation {
     readonly operation: Operations;
 
     constructor() {
@@ -8,7 +9,10 @@ export class MaxCalculation implements ICalculation{
     }
 
     execute(input: Array<number>): number {
-        return 0;
+        if (input.length == 0)
+            throw new Error(`Input collection is empty! Can't find ${this.operation}`);
+
+        return Math.max(...input);
     }
 
 }

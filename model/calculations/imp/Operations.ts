@@ -1,4 +1,4 @@
-enum Operations {
+export enum Operations {
     MIN = "Min",
     MAX = 'Max',
     AVG = 'Avg',

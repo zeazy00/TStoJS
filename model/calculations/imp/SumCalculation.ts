@@ -1,6 +1,7 @@
 import {ICalculation} from "../ICalculation";
+import {Operations} from "./Operations";
 
-export class SumCalculation implements ICalculation{
+export class SumCalculation implements ICalculation {
     readonly operation: Operations;
 
     constructor() {
@@ -8,7 +9,7 @@ export class SumCalculation implements ICalculation{
     }
 
     execute(input: Array<number>): number {
-        return 0;
+        return input.reduce((prev, cur) => prev + cur, 0);
     }
 
 }
