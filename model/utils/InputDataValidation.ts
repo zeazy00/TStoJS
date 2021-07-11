@@ -1,5 +1,7 @@
+export const MAX_SIZE = 1000;
+
 export function validateInput(input: string): boolean {
-    if (input.length == 0)
+    if (input == null || input.length == 0 || input.length > MAX_SIZE)
         return false;
 
     for (let i = 0; i < input.length; i++) {
