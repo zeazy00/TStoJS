@@ -39,10 +39,10 @@ function outputResult(opName: string, result: number) {
 }
 
 function initInput(args: string[]) {
-    if (args == null || !validateInput(args[0]))
+    if (args == null || !validateInput(args[2]))
         return input();
 
-    return args[0];
+    return args[2];
 }
 
 function initIO() {
@@ -51,6 +51,7 @@ function initIO() {
 }
 
 async function main(args: string[]) {
+    console.log(args);
     initIO();
     const inputData = await initInput(args);
 
