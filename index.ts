@@ -3,7 +3,7 @@ import {MaxCalculation} from "./model/calculations/imp/MaxCalculation";
 import {AvgCalculation} from "./model/calculations/imp/AvgCalculation";
 import {MinCalculation} from "./model/calculations/imp/MinCalculation";
 import {SumCalculation} from "./model/calculations/imp/SumCalculation";
-import {stringToArray} from "./model/utils/ArrayUtil";
+import {stringToNumberArray} from "./model/utils/ArrayUtil";
 import {validateInput} from "./model/utils/InputDataValidation"
 import {IOutputProvider} from "./model/IO/output/IOutputProvider";
 import {IInputProvider} from "./model/IO/input/IInputProvider";
@@ -55,7 +55,7 @@ async function main(args: string[]) {
     initIO();
     const inputData = await initInput(args);
 
-    const data = stringToArray(inputData);
+    const data = stringToNumberArray(inputData);
 
     const calcs = initCalcs();
     calcs.forEach((calculation) => {

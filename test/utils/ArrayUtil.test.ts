@@ -1,4 +1,4 @@
-import {stringToArray} from "../../model/utils/ArrayUtil"
+import {stringToNumberArray} from "../../model/utils/ArrayUtil"
 import assert = require("assert");
 import {MAX_SIZE} from "../../model/utils/InputDataValidation";
 
@@ -9,7 +9,7 @@ describe('Validate input converter ArrayUtils.ts', () => {
         let expected = [1, 2, 3, 2, 4];
 
         //act
-        let res = stringToArray(input);
+        let res = stringToNumberArray(input);
 
         //assert
         assert.deepStrictEqual(res, expected);
@@ -20,7 +20,7 @@ describe('Validate input converter ArrayUtils.ts', () => {
         let input = "12d324";
 
         //act + assert
-        assert.throws(() => stringToArray(input),
+        assert.throws(() => stringToNumberArray(input),
             new Error(`Invalid input! String must contain digits only`));
     });
 
@@ -36,7 +36,7 @@ describe('Validate input converter ArrayUtils.ts', () => {
         }
 
         //act
-        let res = stringToArray(input);
+        let res = stringToNumberArray(input);
 
         //assert
         assert.deepStrictEqual(res,expected);

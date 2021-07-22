@@ -1,4 +1,4 @@
-export function stringToArray(str: string): Array<number> {
+export function stringToNumberArray(str: string): Array<number> {
     let result: Array<number> = new Array<number>()
 
     for (let i = 0; i < str.length; i++) {
