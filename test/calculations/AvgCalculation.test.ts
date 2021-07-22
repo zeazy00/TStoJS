@@ -34,7 +34,7 @@ describe('Min calculation test', () => {
 
         //act & assert
         assert.throws(() => calc.execute(input),
-            new Error(`Input collection is empty! Can't find ${Operations.AVG}`));
+            new Error(`Input collection is empty! Can't perform ${Operations.AVG} operation`));
     });
 
 });

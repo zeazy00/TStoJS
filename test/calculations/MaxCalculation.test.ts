@@ -22,7 +22,7 @@ describe('Max calculation test', () => {
 
         //act & assert
         assert.throws(() => calc.execute(input),
-            new Error(`Input collection is empty! Can't find ${Operations.MAX}`));
+            new Error(`Input collection is empty! Can't perform ${Operations.MAX} operation`));
     });
 
 });

@@ -22,7 +22,7 @@ describe('Min calculation test', () => {
 
         //act & assert
         assert.throws(() => calc.execute(input),
-            new Error(`Input collection is empty! Can't find ${Operations.MIN}`));
+            new Error(`Input collection is empty! Can't perform ${Operations.MIN} operation`));
     });
 
 });

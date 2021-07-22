@@ -10,7 +10,7 @@
     "compile": "tsc --declaration",
     "lint": "tslint --project tsconfig.json",
     "prepublish": "npm run compile",
-    "test": "mocha -d ./dist"
+    "test": "mocha ./dist/test/**/*.js"
   },
   "author": "Fedor Ishchenko",
   "license": "ISC",

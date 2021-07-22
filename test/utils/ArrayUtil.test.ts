@@ -21,7 +21,7 @@ describe('Validate input converter ArrayUtils.ts', () => {
 
         //act + assert
         assert.throws(() => stringToArray(input),
-            new Error(`Invalid input! String must contain digits only and be shorter than ${MAX_SIZE}`));
+            new Error(`Invalid input! String must contain digits only`));
     });
 
     it('huge str ok parse', function () {
@@ -40,20 +40,6 @@ describe('Validate input converter ArrayUtils.ts', () => {
 
         //assert
         assert.deepStrictEqual(res,expected);
-
-    });
-
-    it('huge str error parse', function () {
-        //arrange
-        let input = "";
-        for (let i = 1; i < 1050; i++) {
-            const val = i % 10;
-            input += val;
-        }
-
-        //act + assert
-        assert.throws(() => stringToArray(input),
-            new Error(`Invalid input! String must contain digits only and be shorter than ${MAX_SIZE}`));
 
     });
 });
