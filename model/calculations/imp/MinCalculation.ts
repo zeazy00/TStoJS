@@ -10,7 +10,7 @@ export class MinCalculation implements ICalculation {
 
     execute(input: Array<number>): number {
         if (input.length == 0)
-            throw new Error(`Input collection is empty! Can't find ${this.operation}`);
+            throw new Error(`Input collection is empty! Can't perform ${this.operation} operation`);
 
         return Math.min(...input);
     }
