@@ -5,10 +5,12 @@
   "main": "dist/index.js",
   "type": "commonjs",
   "scripts": {
+    "runWithArg": "npm run compile & node dist/index.js 48895",
+    "run": "npm run compile & node dist/index.js",
     "compile": "tsc --declaration",
     "lint": "tslint --project tsconfig.json",
     "prepublish": "npm run compile",
-    "test": "mocha -d ./dist"
+    "test": "mocha ./dist/test/**/*.js"
   },
   "author": "Fedor Ishchenko",
   "license": "ISC",
